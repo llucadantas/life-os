@@ -1,10 +1,10 @@
-package com.lifeos;
+package com.life.os;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ApplicationTests {
+class OsApplicationTests {
 
 	@Test
 	void contextLoads() {

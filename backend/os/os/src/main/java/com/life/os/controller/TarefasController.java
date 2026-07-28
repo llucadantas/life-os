@@ -1,8 +1,10 @@
 package com.life.os.controller;
 
+import com.life.os.dtos.TarefasDTO;
 import com.life.os.dtos.UsuarioDTO;
 import com.life.os.model.TarefaModel;
-import com.life.os.service.UsuarioService;
+import com.life.os.model.TarefasModel;
+import com.life.os.service.TarefasService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -14,37 +16,37 @@ import java.util.Optional;
 @RestController
 @RequestMapping("/v1/usuarios")
 @RequiredArgsConstructor
-public class UsuariosController {
-    private final UsuarioService usuarioService;
+public class TarefasController {
+    private final TarefasService tarefaService;
 
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
     public List<TarefaModel> findAll(){
-        return usuarioService.findAll();
+        return tarefaService.findAll();
     }
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public void salvar(@Valid @RequestBody UsuarioDTO usuario){
-        usuarioService.cadastroUsuario(usuario);
+    public void salvar(@Valid @RequestBody TarefasDTO tarefa){
+        tarefaService.cadastrarTarefa(tarefa);
     }
 
     @GetMapping
     @RequestMapping("./{id}")
     @ResponseStatus(HttpStatus.OK)
-    public Optional<TarefaModel> buscarPorId(@PathVariable Long id){
-        return usuarioService.buscarPorId(id);
+    public Optional<TarefasModel> buscarPorId(@PathVariable Long id){
+        return tarefaService.buscarPorId(id);
     }
 
     @DeleteMapping
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public void remover(@PathVariable Long id){
-        usuarioService.deleteUsuario(id);
+        tarefaService.deleteTarefa(id);
     }
 
     @PutMapping
     @ResponseStatus(HttpStatus.OK)
-    public void atualizar(@RequestBody TarefaModel usuario){
-        usuarioService.atualizarUsuario(usuario);
+    public void atualizar(@RequestBody TarefasModel tarefa){
+        tarefaService.atualizarTarefa(tarefa);
     }
 }

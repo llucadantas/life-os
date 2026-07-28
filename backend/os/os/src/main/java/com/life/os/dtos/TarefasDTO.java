@@ -1,9 +1,6 @@
 package com.life.os.dtos;
 
-import com.life.os.model.UsuarioModel;
-import jakarta.persistence.Column;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
+import com.life.os.model.TarefaModel;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
@@ -25,5 +22,5 @@ public class TarefasDTO {
     @NotNull
     private LocalDate vencimento;
     @NotNull
-    private UsuarioModel usuario;
+    private TarefaModel usuario;
 }

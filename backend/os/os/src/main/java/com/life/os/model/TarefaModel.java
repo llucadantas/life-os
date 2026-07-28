@@ -3,9 +3,6 @@ package com.life.os.model;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.time.LocalDate;
-import java.util.UUID;
-
 @Entity
 @Table(name = "usuarios")
 @NoArgsConstructor
@@ -13,7 +10,7 @@ import java.util.UUID;
 @Getter
 @Setter
 @Builder
-public class UsuarioModel {
+public class TarefaModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

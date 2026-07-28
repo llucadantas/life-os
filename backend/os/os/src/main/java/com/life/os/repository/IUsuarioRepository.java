@@ -1,10 +1,8 @@
 package com.life.os.repository;
 
-import com.life.os.model.UsuarioModel;
+import com.life.os.model.TarefaModel;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import java.util.UUID;
-
-public interface IUsuarioRepository extends JpaRepository<UsuarioModel, Long> {
+public interface IUsuarioRepository extends JpaRepository<TarefaModel, Long> {
 
 }

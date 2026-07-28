@@ -2,10 +2,8 @@ package com.life.os.model;
 
 import jakarta.persistence.*;
 import lombok.*;
-import org.antlr.v4.runtime.misc.NotNull;
 
 import java.time.LocalDate;
-import java.util.UUID;
 
 @Entity
 @Table(name = "tarefas")
@@ -25,6 +23,6 @@ public class TarefasModel {
     private LocalDate vencimento;
     @ManyToOne
     @JoinColumn(name = "id_usuario")
-    private UsuarioModel usuario;
+    private TarefaModel usuario;
 
 }

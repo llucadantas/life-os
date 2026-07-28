@@ -1,7 +1,9 @@
 package com.life.os.model;
 
+import com.life.os.dtos.TarefasDTO;
 import jakarta.persistence.*;
 import lombok.*;
+import org.springframework.beans.BeanUtils;
 
 import java.time.LocalDate;
 
@@ -23,6 +25,11 @@ public class TarefasModel {
     private LocalDate vencimento;
     @ManyToOne
     @JoinColumn(name = "id_usuario")
-    private TarefaModel usuario;
+    private UsuarioModel usuario;
+
+    public TarefasModel(TarefasDTO tarefasDTO, UsuarioModel usuario) {
+        BeanUtils.copyProperties(tarefasDTO, this);
+        this.usuario = usuario;
+    }
 
 }

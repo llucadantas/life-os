@@ -1,7 +1,8 @@
 package com.life.os.controller;
 
+import com.life.os.dtos.TarefasDTO;
 import com.life.os.dtos.UsuarioDTO;
-import com.life.os.model.TarefaModel;
+import com.life.os.model.UsuarioModel;
 import com.life.os.service.UsuarioService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 @RestController
 @RequestMapping("/v1/usuarios")
@@ -19,7 +21,7 @@ public class UsuariosController {
 
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
-    public List<TarefaModel> findAll(){
+    public Set<UsuarioDTO> findAll(){
         return usuarioService.findAll();
     }
 
@@ -30,9 +32,9 @@ public class UsuariosController {
     }
 
     @GetMapping
-    @RequestMapping("./{id}")
+    @RequestMapping("/{id}")
     @ResponseStatus(HttpStatus.OK)
-    public Optional<TarefaModel> buscarPorId(@PathVariable Long id){
+    public UsuarioDTO buscarPorId(@PathVariable Long id){
         return usuarioService.buscarPorId(id);
     }
 
@@ -42,9 +44,11 @@ public class UsuariosController {
         usuarioService.deleteUsuario(id);
     }
 
-    @PutMapping
+
+    @GetMapping
     @ResponseStatus(HttpStatus.OK)
-    public void atualizar(@RequestBody TarefaModel usuario){
-        usuarioService.atualizarUsuario(usuario);
+    @RequestMapping("/tarefas/{id}")
+    public Set<TarefasDTO> buscarTodos(@PathVariable Long id){
+        return usuarioService.tarefasPorUsuario(id);
     }
 }

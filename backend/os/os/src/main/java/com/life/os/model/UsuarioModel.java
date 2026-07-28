@@ -1,7 +1,11 @@
 package com.life.os.model;
 
+import com.life.os.dtos.UsuarioDTO;
 import jakarta.persistence.*;
 import lombok.*;
+import org.springframework.beans.BeanUtils;
+
+import java.util.Set;
 
 @Entity
 @Table(name = "usuarios")
@@ -10,7 +14,7 @@ import lombok.*;
 @Getter
 @Setter
 @Builder
-public class TarefaModel {
+public class UsuarioModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -18,5 +22,11 @@ public class TarefaModel {
     private String nome;
     @Column(unique = true)
     private String email;
+    @OneToMany(mappedBy = "usuario")
+    private Set<TarefasModel> tarefas;
+
+    public UsuarioModel(UsuarioDTO usuarioDTO) {
+        BeanUtils.copyProperties(usuarioDTO, this);
+    }
 
 }

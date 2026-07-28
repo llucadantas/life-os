@@ -1,0 +1,60 @@
+# ==================================
+# 1. Arquivos de Compilação e Build (Java / Maven)
+# ==================================
+target/
+build/
+*.class
+*.jar
+*.war
+*.ear
+*.nar
+!.mvn/wrapper/maven-wrapper.jar
+
+# ==================================
+# 2. Variáveis de Ambiente e Docker
+# ==================================
+.env
+.env.local
+.env.*.local
+*.log
+docker-data/
+postgres-data/
+
+# ==================================
+# 3. IDEs e Ferramentas
+# ==================================
+# IntelliJ IDEA
+.idea/
+*.iws
+*.iml
+*.ipr
+out/
+
+# Eclipse / STS
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+# VS Code
+.vscode/
+
+# NetBeans
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+# ==================================
+# 4. Arquivos do Sistema Operacional
+# ==================================
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Documentação auxiliar padrão
+HELP.md
